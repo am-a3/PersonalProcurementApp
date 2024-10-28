@@ -11,7 +11,7 @@ import SwiftData
 struct NewItemView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
-    @Bindable var item: Item = Item()
+    @State var item: Item = Item()
     
     @Query var shops: [Shop]
     
@@ -77,9 +77,26 @@ struct NewItemView: View {
             .padding(.top, 1)
             HStack {
                 Text("Shop:")
-                .padding(.leading, 20)
-                
+                    .padding(.leading, 20)
                 Spacer()
+            }
+            ForEach(shops){ shop in
+                HStack{
+                    Text(shop.name)
+                        .padding(.leading, 20)
+                    Button(action: {
+                        if !item.shops.contains(shop) {
+                            item.shops.append(shop)
+                        }
+                    }, label: {
+                        Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
+                            .labelStyle(.iconOnly)
+                            .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
+                            .imageScale(.large)
+                    })
+                    .padding(.trailing, 8)
+                    Spacer()
+                }
             }
             .padding(.top, 1)
             Spacer()

@@ -10,6 +10,7 @@ import SwiftData
 
 struct ShopView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.presentationMode) var presentationMode
     @Bindable var shop: Shop
 
     @Query var allItems: [Item]
@@ -24,6 +25,15 @@ struct ShopView: View {
         VStack {
             HStack {
                 Spacer()
+                Button("Delete") {
+                    modelContext.delete(shop)
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .buttonStyle(.bordered)
+                .foregroundColor(.white)
+                .background(.red)
+                .padding(.top, 10)
+                .padding(.trailing, 10)
                 Button("Save") {
                     modelContext.insert(shop)
                 }
@@ -82,14 +92,19 @@ struct ShopView: View {
                     ForEach(filteredItems) { item in
                         HStack {
                             Text(item.name)
-                            Button(item.is_procured ? "Done" : "Pending") {
-                                item.is_procured = !item.is_procured
-                            }
-                            .foregroundColor(item.is_procured ? .green : .red)
                             Spacer()
+                            Button(action: {
+                                item.is_procured = !item.is_procured
+                            }, label: {
+                                Label("",systemImage: item.is_procured ? "checkmark.square.fill" : "square")
+                                    .labelStyle(.iconOnly)
+                                    .foregroundColor(.blue)
+                                    .imageScale(.large)
+                            })
                         }
                         .padding(.top, 5)
                         .padding(.bottom, 5)
+                        .padding(.trailing, 20)
                         Divider()
                     }
                     Spacer()

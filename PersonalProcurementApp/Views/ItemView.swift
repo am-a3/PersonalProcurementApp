@@ -10,6 +10,7 @@ import SwiftData
 
 struct ItemView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.presentationMode) var presentationMode
     @Bindable var item: Item
     
     @Query var shops: [Shop]
@@ -18,6 +19,15 @@ struct ItemView: View {
         VStack {
             HStack {
                 Spacer()
+                Button("Delete") {
+                    modelContext.delete(item)
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .buttonStyle(.bordered)
+                .foregroundColor(.white)
+                .background(.red)
+                .padding(.top, 10)
+                .padding(.trailing, 10)
                 Button("Save") {
                     modelContext.insert(item)
                 }
