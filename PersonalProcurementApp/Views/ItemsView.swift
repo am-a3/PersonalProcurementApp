@@ -10,7 +10,7 @@ import SwiftData
 
 struct ItemsView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var items: [Item]
+    @Query(sort: \Item.is_procured) var items: [Item]
     
     var body: some View {
         VStack {

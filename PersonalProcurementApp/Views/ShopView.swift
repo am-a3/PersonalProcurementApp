@@ -13,11 +13,11 @@ struct ShopView: View {
     @Environment(\.presentationMode) var presentationMode
     @Bindable var shop: Shop
 
-    @Query var allItems: [Item]
+    @Query(sort: \Item.is_procured) var allItems: [Item]
 
     var filteredItems: [Item] {
         allItems.filter { item in
-            item.shops.contains { $0.name == shop.name }
+            item.shops.contains { $0.name == shop.name } && item.is_procured == false
         }
     }
     

@@ -14,6 +14,7 @@
 		77206D5E2CBF093E0021EB8A /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D5D2CBF093E0021EB8A /* NewItemView.swift */; };
 		77206D602CC1C3F60021EB8A /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D5F2CC1C3F60021EB8A /* ShopView.swift */; };
 		77206D622CC5A1FD0021EB8A /* NewShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D612CC5A1FD0021EB8A /* NewShopView.swift */; };
+		77206D652CD0461A0021EB8A /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D642CD0461A0021EB8A /* BoolExtensions.swift */; };
 		77209F9E2CB9D81000A68D59 /* PersonalProcurementAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77209F9D2CB9D81000A68D59 /* PersonalProcurementAppApp.swift */; };
 		77209FA02CB9D81000A68D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77209F9F2CB9D81000A68D59 /* ContentView.swift */; };
 		77209FA22CB9D81000A68D59 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77209FA12CB9D81000A68D59 /* Item.swift */; };
@@ -31,6 +32,7 @@
 		77206D5D2CBF093E0021EB8A /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		77206D5F2CC1C3F60021EB8A /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		77206D612CC5A1FD0021EB8A /* NewShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewShopView.swift; sourceTree = "<group>"; };
+		77206D642CD0461A0021EB8A /* BoolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
 		77209F9A2CB9D81000A68D59 /* PersonalProcurementApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalProcurementApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77209F9D2CB9D81000A68D59 /* PersonalProcurementAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProcurementAppApp.swift; sourceTree = "<group>"; };
 		77209F9F2CB9D81000A68D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		77206D632CD045FA0021EB8A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77206D642CD0461A0021EB8A /* BoolExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		77209F912CB9D81000A68D59 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		77209F9C2CB9D81000A68D59 /* PersonalProcurementApp */ = {
 			isa = PBXGroup;
 			children = (
+				77206D632CD045FA0021EB8A /* Extensions */,
 				77209F9D2CB9D81000A68D59 /* PersonalProcurementAppApp.swift */,
 				77206D592CBAF05A0021EB8A /* Views */,
 				77206D5A2CBAF07B0021EB8A /* Models */,
@@ -184,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77209FA02CB9D81000A68D59 /* ContentView.swift in Sources */,
+				77206D652CD0461A0021EB8A /* BoolExtensions.swift in Sources */,
 				77206D542CBAEE2D0021EB8A /* ItemsView.swift in Sources */,
 				77209FA22CB9D81000A68D59 /* Item.swift in Sources */,
 				77206D582CBAEEBD0021EB8A /* ItemCategoriesView.swift in Sources */,
