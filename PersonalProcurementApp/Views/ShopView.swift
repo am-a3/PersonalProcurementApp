@@ -80,14 +80,11 @@ struct ShopView: View {
             }
             .padding(.top, 1)
             HStack {
-                VStack {
-                    HStack {
-                        Text("Items:")
-                            .padding(.leading, 20)
-                        Spacer()
-                    }
-                    Spacer()
-                }
+                Text("Items:")
+                    .padding(.leading, 20)
+                Spacer()
+            }
+            ScrollView() {
                 VStack {
                     ForEach(filteredItems) { item in
                         HStack {
@@ -107,10 +104,9 @@ struct ShopView: View {
                         .padding(.trailing, 20)
                         Divider()
                     }
-                    Spacer()
                 }
+                .padding(.top, 1)
             }
-            .padding(.top, 1)
             Spacer()
         }
     }

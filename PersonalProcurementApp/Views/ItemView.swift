@@ -88,25 +88,29 @@ struct ItemView: View {
                     .padding(.leading, 20)
                 Spacer()
             }
-            ForEach(shops){ shop in
-                HStack{
-                    Text(shop.name)
-                        .padding(.leading, 20)
-                    Button(action: {
-                        if !item.shops.contains(shop) {
-                            item.shops.append(shop)
+            ScrollView() {
+                VStack {
+                    ForEach(shops){ shop in
+                        HStack{
+                            Text(shop.name)
+                                .padding(.leading, 20)
+                            Button(action: {
+                                if !item.shops.contains(shop) {
+                                    item.shops.append(shop)
+                                }
+                            }, label: {
+                                Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
+                                    .labelStyle(.iconOnly)
+                                    .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
+                                    .imageScale(.large)
+                            })
+                            .padding(.trailing, 8)
+                            Spacer()
                         }
-                    }, label: {
-                        Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
-                            .labelStyle(.iconOnly)
-                            .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
-                            .imageScale(.large)
-                    })
-                    .padding(.trailing, 8)
-                    Spacer()
+                    }
+                    .padding(.top, 1)
                 }
             }
-            .padding(.top, 1)
             Spacer()
         }
     }

@@ -28,17 +28,21 @@ struct ShopsView: View {
             Divider()
                 .frame(height: 2)
                 .background(Color.blue)
-            ForEach(shops) { shop in
-                HStack {
-                    NavigationLink(destination: ShopView(shop: shop)){
-                        Text(shop.name)
+            ScrollView() {
+                VStack {
+                    ForEach(shops) { shop in
+                        HStack {
+                            NavigationLink(destination: ShopView(shop: shop)){
+                                Text(shop.name)
+                            }
+                            .padding(.leading, 8)
+                            Spacer()
+                        }
+                        .padding(.top, 5)
+                        .padding(.bottom, 5)
+                        Divider()
                     }
-                    .padding(.leading, 8)
-                    Spacer()
                 }
-                .padding(.top, 5)
-                .padding(.bottom, 5)
-                Divider()
             }
             Spacer()
         }

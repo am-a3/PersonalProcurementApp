@@ -16,25 +16,25 @@ struct NewItemView: View {
     @Query var shops: [Shop]
     
     var body: some View {
+        HStack {
+            Spacer()
+            Button("Save") {
+                modelContext.insert(item)
+                self.presentationMode.wrappedValue.dismiss()
+            }
+            .buttonStyle(.bordered)
+            .foregroundColor(.white)
+            .background(.blue)
+            .padding(.top, 10)
+            .padding(.trailing, 10)
+        }
+        Divider()
+            .frame(height: 2)
+            .background(Color.blue)
         VStack {
             HStack {
-                Spacer()
-                Button("Save") {
-                    modelContext.insert(item)
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-                .buttonStyle(.bordered)
-                .foregroundColor(.white)
-                .background(.blue)
-                .padding(.top, 10)
-                .padding(.trailing, 10)
-            }
-            Divider()
-                .frame(height: 2)
-                .background(Color.blue)
-            HStack {
                 Text("Name:")
-                .padding(.leading, 20)
+                    .padding(.leading, 20)
                 TextField(
                     item.name,
                     text: $item.name,
@@ -45,7 +45,7 @@ struct NewItemView: View {
             .padding(.top, 30)
             HStack {
                 Text("Quantity:")
-                .padding(.leading, 20)
+                    .padding(.leading, 20)
                 TextField(
                     String(item.quantity),
                     value: $item.quantity,
@@ -56,7 +56,7 @@ struct NewItemView: View {
             .padding(.top, 1)
             HStack {
                 Text("Status:")
-                .padding(.leading, 20)
+                    .padding(.leading, 20)
                 Button(item.is_procured ? "Done" : "Pending") {
                     item.is_procured = !item.is_procured
                 }
@@ -66,7 +66,7 @@ struct NewItemView: View {
             .padding(.top, 1)
             HStack {
                 Text("Details:")
-                .padding(.leading, 20)
+                    .padding(.leading, 20)
                 TextField(
                     item.details,
                     text: $item.details,
@@ -80,27 +80,31 @@ struct NewItemView: View {
                     .padding(.leading, 20)
                 Spacer()
             }
-            ForEach(shops){ shop in
-                HStack{
-                    Text(shop.name)
-                        .padding(.leading, 20)
-                    Button(action: {
-                        if !item.shops.contains(shop) {
-                            item.shops.append(shop)
+            ScrollView() {
+                VStack {
+                    ForEach(shops){ shop in
+                        HStack{
+                            Text(shop.name)
+                                .padding(.leading, 20)
+                            Button(action: {
+                                if !item.shops.contains(shop) {
+                                    item.shops.append(shop)
+                                }
+                            }, label: {
+                                Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
+                                    .labelStyle(.iconOnly)
+                                    .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
+                                    .imageScale(.large)
+                            })
+                            .padding(.trailing, 8)
+                            Spacer()
                         }
-                    }, label: {
-                        Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
-                            .labelStyle(.iconOnly)
-                            .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
-                            .imageScale(.large)
-                    })
-                    .padding(.trailing, 8)
-                    Spacer()
+                    }
+                    .padding(.top, 1)
                 }
             }
-            .padding(.top, 1)
-            Spacer()
         }
+        Spacer()
     }
 }
 
