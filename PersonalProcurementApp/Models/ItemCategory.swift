@@ -26,4 +26,13 @@ final class ItemCategory {
         self.modified_timestamp = Date.now
         self.created_timestamp = Date.now
     }
+    
+    init () {
+        self.name = ""
+        self.items = []
+        self.shops = []
+        self.details = ""
+        self.modified_timestamp = Date.now
+        self.created_timestamp = Date.now
+    }
 }

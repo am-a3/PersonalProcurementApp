@@ -14,6 +14,7 @@ struct ItemView: View {
     @Bindable var item: Item
     
     @Query var shops: [Shop]
+    @Query var item_categories: [ItemCategory]
     
     var body: some View {
         VStack {
@@ -40,6 +41,7 @@ struct ItemView: View {
             Divider()
                 .frame(height: 2)
                 .background(Color.blue)
+            //Name field:
             HStack {
                 Text("Name:")
                 .padding(.leading, 20)
@@ -51,6 +53,7 @@ struct ItemView: View {
                 Spacer()
             }
             .padding(.top, 30)
+            //Quantity field:
             HStack {
                 Text("Quantity:")
                 .padding(.leading, 20)
@@ -62,6 +65,7 @@ struct ItemView: View {
                 Spacer()
             }
             .padding(.top, 1)
+            //Status field:
             HStack {
                 Text("Status:")
                 .padding(.leading, 20)
@@ -72,6 +76,7 @@ struct ItemView: View {
                 Spacer()
             }
             .padding(.top, 1)
+            //Details field:
             HStack {
                 Text("Details:")
                 .padding(.leading, 20)
@@ -83,6 +88,7 @@ struct ItemView: View {
                 Spacer()
             }
             .padding(.top, 1)
+            //Shop field:
             HStack {
                 Text("Shop:")
                     .padding(.leading, 20)
@@ -98,10 +104,49 @@ struct ItemView: View {
                                 if !item.shops.contains(shop) {
                                     item.shops.append(shop)
                                 }
+                                else {
+                                    if let index = item.shops.firstIndex(of: shop) {
+                                        item.shops.remove(at: index)
+                                    }
+                                }
                             }, label: {
                                 Label("",systemImage: item.shops.contains(shop) ? "checkmark.square.fill" : "square")
                                     .labelStyle(.iconOnly)
                                     .foregroundColor(item.shops.contains(shop) ? .blue : .blue)
+                                    .imageScale(.large)
+                            })
+                            .padding(.trailing, 8)
+                            Spacer()
+                        }
+                    }
+                    .padding(.top, 1)
+                }
+            }
+            //Categories field:
+            HStack {
+                Text("Categories:")
+                    .padding(.leading, 20)
+                Spacer()
+            }
+            ScrollView() {
+                VStack {
+                    ForEach(item_categories){ ic in
+                        HStack{
+                            Text(ic.name)
+                                .padding(.leading, 20)
+                            Button(action: {
+                                if !item.categories.contains(ic) {
+                                    item.categories.append(ic)
+                                }
+                                else {
+                                    if let index = item.categories.firstIndex(of: ic) {
+                                        item.categories.remove(at: index)
+                                    }
+                                }
+                            }, label: {
+                                Label("",systemImage: item.categories.contains(ic) ? "checkmark.square.fill" : "square")
+                                    .labelStyle(.iconOnly)
+                                    .foregroundColor(item.categories.contains(ic) ? .blue : .blue)
                                     .imageScale(.large)
                             })
                             .padding(.trailing, 8)
