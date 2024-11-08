@@ -24,6 +24,9 @@
 		77209FB02CBA565D00A68D59 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77209FAF2CBA565D00A68D59 /* ItemCategory.swift */; };
 		77846A3C2CDAD25A004BD68A /* ItemCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A3B2CDAD25A004BD68A /* ItemCategoryView.swift */; };
 		77846A3E2CDAD271004BD68A /* NewItemCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A3D2CDAD271004BD68A /* NewItemCategoryView.swift */; };
+		77846A412CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */; };
+		77846A432CDEC865004BD68A /* ItemShopSelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */; };
+		77846A452CDECA1D004BD68A /* ItemDataViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		77209FAF2CBA565D00A68D59 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		77846A3B2CDAD25A004BD68A /* ItemCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategoryView.swift; sourceTree = "<group>"; };
 		77846A3D2CDAD271004BD68A /* NewItemCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCategoryView.swift; sourceTree = "<group>"; };
+		77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategorySelectViewComponent.swift; sourceTree = "<group>"; };
+		77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShopSelectViewComponent.swift; sourceTree = "<group>"; };
+		77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		77209F9C2CB9D81000A68D59 /* PersonalProcurementApp */ = {
 			isa = PBXGroup;
 			children = (
+				77846A3F2CDD7A9A004BD68A /* ViewComponents */,
 				77206D632CD045FA0021EB8A /* Extensions */,
 				77209F9D2CB9D81000A68D59 /* PersonalProcurementAppApp.swift */,
 				77206D592CBAF05A0021EB8A /* Views */,
@@ -128,6 +135,16 @@
 				77209FA62CB9D81300A68D59 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77846A3F2CDD7A9A004BD68A /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */,
+				77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */,
+				77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +219,14 @@
 			files = (
 				77209FA02CB9D81000A68D59 /* ContentView.swift in Sources */,
 				77206D652CD0461A0021EB8A /* BoolExtensions.swift in Sources */,
+				77846A432CDEC865004BD68A /* ItemShopSelectViewComponent.swift in Sources */,
 				77206D542CBAEE2D0021EB8A /* ItemsView.swift in Sources */,
 				77846A3C2CDAD25A004BD68A /* ItemCategoryView.swift in Sources */,
 				77209FA22CB9D81000A68D59 /* Item.swift in Sources */,
 				77206D582CBAEEBD0021EB8A /* ItemCategoriesView.swift in Sources */,
 				77206D5E2CBF093E0021EB8A /* NewItemView.swift in Sources */,
 				77206D5C2CBB1E480021EB8A /* ItemView.swift in Sources */,
+				77846A412CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift in Sources */,
 				77209F9E2CB9D81000A68D59 /* PersonalProcurementAppApp.swift in Sources */,
 				77206D622CC5A1FD0021EB8A /* NewShopView.swift in Sources */,
 				77206D562CBAEEA60021EB8A /* ShopsView.swift in Sources */,
@@ -215,6 +234,7 @@
 				77206D602CC1C3F60021EB8A /* ShopView.swift in Sources */,
 				77846A3E2CDAD271004BD68A /* NewItemCategoryView.swift in Sources */,
 				77209FAE2CBA4DB500A68D59 /* Shop.swift in Sources */,
+				77846A452CDECA1D004BD68A /* ItemDataViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
