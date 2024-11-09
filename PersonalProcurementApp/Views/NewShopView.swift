@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewShopView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
     @Bindable var shop: Shop = Shop()
+    @Query var item_categories: [ItemCategory]
     
     var body: some View {
         VStack {
@@ -62,6 +64,8 @@ struct NewShopView: View {
                 Spacer()
             }
             .padding(.top, 1)
+            //Item category assignment:
+            ShopCategorySelectViewComponent(item_categories: item_categories, shop: shop)
             Spacer()
         }
     }

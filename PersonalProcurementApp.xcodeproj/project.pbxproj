@@ -27,6 +27,7 @@
 		77846A412CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */; };
 		77846A432CDEC865004BD68A /* ItemShopSelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */; };
 		77846A452CDECA1D004BD68A /* ItemDataViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */; };
+		77846A492CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategorySelectViewComponent.swift; sourceTree = "<group>"; };
 		77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShopSelectViewComponent.swift; sourceTree = "<group>"; };
 		77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataViewComponent.swift; sourceTree = "<group>"; };
+		77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategorySelectViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				77846A402CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift */,
 				77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */,
 				77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */,
+				77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				77209FA02CB9D81000A68D59 /* ContentView.swift in Sources */,
 				77206D652CD0461A0021EB8A /* BoolExtensions.swift in Sources */,
+				77846A492CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift in Sources */,
 				77846A432CDEC865004BD68A /* ItemShopSelectViewComponent.swift in Sources */,
 				77206D542CBAEE2D0021EB8A /* ItemsView.swift in Sources */,
 				77846A3C2CDAD25A004BD68A /* ItemCategoryView.swift in Sources */,

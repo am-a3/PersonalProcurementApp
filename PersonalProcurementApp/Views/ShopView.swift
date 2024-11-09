@@ -14,10 +14,11 @@ struct ShopView: View {
     @Bindable var shop: Shop
 
     @Query(sort: \Item.is_procured) var allItems: [Item]
+    @Query var item_categories: [ItemCategory]
 
     var filteredItems: [Item] {
         allItems.filter { item in
-            item.shops.contains { $0.name == shop.name } && item.is_procured == false
+            (item.shops.contains { $0.id == shop.id } || item.categories.contains {ct in shop.categories.contains(ct)}) && item.is_procured == false
         }
     }
     
@@ -79,6 +80,7 @@ struct ShopView: View {
                 Spacer()
             }
             .padding(.top, 1)
+            //Items select:
             HStack {
                 Text("Items:")
                     .padding(.leading, 20)
@@ -107,6 +109,8 @@ struct ShopView: View {
                 }
                 .padding(.top, 1)
             }
+            //Item category assignment:
+            ShopCategorySelectViewComponent(item_categories: item_categories, shop: shop)
             Spacer()
         }
     }
