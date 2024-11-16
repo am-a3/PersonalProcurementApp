@@ -17,6 +17,8 @@ final class Item {
     var modified_timestamp: Date
     var created_timestamp: Date
     var is_procured: Bool
+    var is_reccuring: Bool
+    var recurre_days: Int32
     @Relationship(inverse: \ItemCategory.items) var categories: [ItemCategory]
     @Relationship(inverse: \Shop.items) var shops: [Shop]
     
@@ -27,6 +29,8 @@ final class Item {
         self.modified_timestamp = Date.now
         self.created_timestamp = Date.now
         self.is_procured = false
+        self.is_reccuring = false
+        self.recurre_days = 0
         self.categories = []
         self.shops = []
     }
@@ -38,6 +42,8 @@ final class Item {
         self.modified_timestamp = Date.now
         self.created_timestamp = Date.now
         self.is_procured = false
+        self.is_reccuring = false
+        self.recurre_days = 0
         self.categories = []
         self.shops = []
     }

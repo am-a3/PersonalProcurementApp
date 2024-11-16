@@ -28,6 +28,7 @@
 		77846A432CDEC865004BD68A /* ItemShopSelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */; };
 		77846A452CDECA1D004BD68A /* ItemDataViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */; };
 		77846A492CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */; };
+		77846A4C2CE1045E004BD68A /* RecurringEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77846A4B2CE1045E004BD68A /* RecurringEventService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShopSelectViewComponent.swift; sourceTree = "<group>"; };
 		77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataViewComponent.swift; sourceTree = "<group>"; };
 		77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategorySelectViewComponent.swift; sourceTree = "<group>"; };
+		77846A4B2CE1045E004BD68A /* RecurringEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringEventService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		77209F9C2CB9D81000A68D59 /* PersonalProcurementApp */ = {
 			isa = PBXGroup;
 			children = (
+				77846A4A2CE10435004BD68A /* Services */,
 				77846A3F2CDD7A9A004BD68A /* ViewComponents */,
 				77206D632CD045FA0021EB8A /* Extensions */,
 				77209F9D2CB9D81000A68D59 /* PersonalProcurementAppApp.swift */,
@@ -148,6 +151,14 @@
 				77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		77846A4A2CE10435004BD68A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				77846A4B2CE1045E004BD68A /* RecurringEventService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				77206D582CBAEEBD0021EB8A /* ItemCategoriesView.swift in Sources */,
 				77206D5E2CBF093E0021EB8A /* NewItemView.swift in Sources */,
 				77206D5C2CBB1E480021EB8A /* ItemView.swift in Sources */,
+				77846A4C2CE1045E004BD68A /* RecurringEventService.swift in Sources */,
 				77846A412CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift in Sources */,
 				77209F9E2CB9D81000A68D59 /* PersonalProcurementAppApp.swift in Sources */,
 				77206D622CC5A1FD0021EB8A /* NewShopView.swift in Sources */,
