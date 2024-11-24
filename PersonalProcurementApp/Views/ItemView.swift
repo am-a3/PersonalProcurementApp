@@ -17,31 +17,34 @@ struct ItemView: View {
     @Query var item_categories: [ItemCategory]
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button("Delete") {
-                    modelContext.delete(item)
-                    self.presentationMode.wrappedValue.dismiss()
+        ScrollView {
+            VStack {
+                HStack {
+                    Spacer()
+                    Button("Delete") {
+                        modelContext.delete(item)
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(.white)
+                    .background(.red)
+                    .padding(.top, 10)
+                    .padding(.trailing, 10)
+                    Button("Save") {
+                        modelContext.insert(item)
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .padding(.top, 10)
+                    .padding(.trailing, 10)
                 }
-                .buttonStyle(.bordered)
-                .foregroundColor(.white)
-                .background(.red)
-                .padding(.top, 10)
-                .padding(.trailing, 10)
-                Button("Save") {
-                    modelContext.insert(item)
-                }
-                .buttonStyle(.bordered)
-                .foregroundColor(.white)
-                .background(.blue)
-                .padding(.top, 10)
-                .padding(.trailing, 10)
+                Divider()
+                    .frame(height: 2)
+                    .background(Color.blue)
+                ItemDataViewComponent(shops: shops, item_categories: item_categories, item: item)
+                ItemRecurringConfigViewComponent(item: item)
             }
-            Divider()
-                .frame(height: 2)
-                .background(Color.blue)
-            ItemDataViewComponent(shops: shops, item_categories: item_categories, item: item)
         }
     }
 }

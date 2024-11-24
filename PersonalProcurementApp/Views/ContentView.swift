@@ -52,7 +52,7 @@ struct ContentView: View {
             }
         }
         .onAppear() {
-            
+            ServiceProvider.shared.getRecurringEventService().resetItems()
         }
     }
 }

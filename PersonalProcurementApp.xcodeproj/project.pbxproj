@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FED14152CF1B2490036D6DA /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FED14142CF1B2490036D6DA /* ServiceProvider.swift */; };
+		6FED14172CF1B6510036D6DA /* ItemRecurringConfigViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FED14162CF1B6510036D6DA /* ItemRecurringConfigViewComponent.swift */; };
 		77206D542CBAEE2D0021EB8A /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D532CBAEE2D0021EB8A /* ItemsView.swift */; };
 		77206D562CBAEEA60021EB8A /* ShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D552CBAEEA60021EB8A /* ShopsView.swift */; };
 		77206D582CBAEEBD0021EB8A /* ItemCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77206D572CBAEEBD0021EB8A /* ItemCategoriesView.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FED14142CF1B2490036D6DA /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		6FED14162CF1B6510036D6DA /* ItemRecurringConfigViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRecurringConfigViewComponent.swift; sourceTree = "<group>"; };
 		77206D532CBAEE2D0021EB8A /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		77206D552CBAEEA60021EB8A /* ShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsView.swift; sourceTree = "<group>"; };
 		77206D572CBAEEBD0021EB8A /* ItemCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategoriesView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				77846A422CDEC865004BD68A /* ItemShopSelectViewComponent.swift */,
 				77846A442CDECA1D004BD68A /* ItemDataViewComponent.swift */,
 				77846A482CDFACB7004BD68A /* ShopCategorySelectViewComponent.swift */,
+				6FED14162CF1B6510036D6DA /* ItemRecurringConfigViewComponent.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				77846A4B2CE1045E004BD68A /* RecurringEventService.swift */,
+				6FED14142CF1B2490036D6DA /* ServiceProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 				77209FA22CB9D81000A68D59 /* Item.swift in Sources */,
 				77206D582CBAEEBD0021EB8A /* ItemCategoriesView.swift in Sources */,
 				77206D5E2CBF093E0021EB8A /* NewItemView.swift in Sources */,
+				6FED14152CF1B2490036D6DA /* ServiceProvider.swift in Sources */,
 				77206D5C2CBB1E480021EB8A /* ItemView.swift in Sources */,
 				77846A4C2CE1045E004BD68A /* RecurringEventService.swift in Sources */,
 				77846A412CDD7AD3004BD68A /* ItemCategorySelectViewComponent.swift in Sources */,
@@ -247,6 +254,7 @@
 				77206D622CC5A1FD0021EB8A /* NewShopView.swift in Sources */,
 				77206D562CBAEEA60021EB8A /* ShopsView.swift in Sources */,
 				77209FB02CBA565D00A68D59 /* ItemCategory.swift in Sources */,
+				6FED14172CF1B6510036D6DA /* ItemRecurringConfigViewComponent.swift in Sources */,
 				77206D602CC1C3F60021EB8A /* ShopView.swift in Sources */,
 				77846A3E2CDAD271004BD68A /* NewItemCategoryView.swift in Sources */,
 				77209FAE2CBA4DB500A68D59 /* Shop.swift in Sources */,
