@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class ItemCategory {
-    @Attribute(.unique) let id = UUID()
+    @Attribute(.unique) var id = UUID()
     var name: String
     var items: [Item]
     var shops: [Shop]

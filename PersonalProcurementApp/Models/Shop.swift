@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class Shop {
-    @Attribute(.unique) let id = UUID()
+    @Attribute(.unique) var id = UUID()
     var name: String
     var details: String
     var address: String
