@@ -8,15 +8,20 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct NewItemCategoryView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
     @State var item_category: ItemCategory = ItemCategory()
     
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "NewItemCategoryView")
+    
     var body: some View {
         HStack {
             Spacer()
             Button("Save") {
+                logger.info("Saving new item category \(item_category.name)")
                 modelContext.insert(item_category)
                 self.presentationMode.wrappedValue.dismiss()
             }
@@ -52,6 +57,9 @@ struct NewItemCategoryView: View {
                 Spacer()
             }
             .padding(.top, 1)
+        }
+        .onAppear() {
+            logger.info("NewItemCategoryView active")
         }
         Spacer()
     }

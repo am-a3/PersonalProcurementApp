@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import os
 
 struct ShopCategorySelectViewComponent: View {
     var item_categories: [ItemCategory]
     var shop: Shop
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ShopCategorySelectViewComponent")
     
     var body: some View {
         HStack {
@@ -26,10 +29,12 @@ struct ShopCategorySelectViewComponent: View {
                         Button(action: {
                             if !shop.categories.contains(ic) {
                                 shop.categories.append(ic)
+                                logger.info("Added item category \(ic.name) to shop \(shop.name)")
                             }
                             else {
                                 if let index = shop.categories.firstIndex(of: ic) {
                                     shop.categories.remove(at: index)
+                                    logger.info("Removed item category \(ic.name) to shop \(shop.name)")
                                 }
                             }
                         }, label: {

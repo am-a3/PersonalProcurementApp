@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct ShopView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
@@ -15,6 +17,8 @@ struct ShopView: View {
 
     @Query(sort: \Item.is_procured) var allItems: [Item]
     @Query var item_categories: [ItemCategory]
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ShopView")
 
     var filteredItems: [Item] {
         allItems.filter { item in
@@ -27,6 +31,7 @@ struct ShopView: View {
             HStack {
                 Spacer()
                 Button("Delete") {
+                    logger.info("Deleting shop \(shop.name)")
                     modelContext.delete(shop)
                     self.presentationMode.wrappedValue.dismiss()
                 }
@@ -36,6 +41,7 @@ struct ShopView: View {
                 .padding(.top, 10)
                 .padding(.trailing, 10)
                 Button("Save") {
+                    logger.info("Saving shop \(shop.name)")
                     modelContext.insert(shop)
                 }
                 .buttonStyle(.bordered)
@@ -94,6 +100,7 @@ struct ShopView: View {
                             Spacer()
                             Button(action: {
                                 item.is_procured = !item.is_procured
+                                logger.info("Toggling \(item.name) is_procured to \(item.is_procured.description)")
                             }, label: {
                                 Label("",systemImage: item.is_procured ? "checkmark.square.fill" : "square")
                                     .labelStyle(.iconOnly)
@@ -108,6 +115,9 @@ struct ShopView: View {
                     }
                 }
                 .padding(.top, 1)
+            }
+            .onAppear() {
+                logger.info("ShopView active")
             }
             //Item category assignment:
             ShopCategorySelectViewComponent(item_categories: item_categories, shop: shop)

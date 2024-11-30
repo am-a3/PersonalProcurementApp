@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+import os
+
 struct ItemShopSelectViewComponent: View {
     let shops: [Shop]
     var item: Item
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemShopSelectViewComponent")
     
     var body: some View {
         HStack {
@@ -26,10 +30,12 @@ struct ItemShopSelectViewComponent: View {
                         Button(action: {
                             if !item.shops.contains(shop) {
                                 item.shops.append(shop)
+                                logger.info("Item \(item.name) added to shop \(shop.name)")
                             }
                             else {
                                 if let index = item.shops.firstIndex(of: shop) {
                                     item.shops.remove(at: index)
+                                    logger.info("Item \(item.name) removed from shop \(shop.name)")
                                 }
                             }
                         }, label: {
