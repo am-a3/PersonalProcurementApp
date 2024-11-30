@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import os
 
 struct NewItemView: View {
     @Environment(\.modelContext) var modelContext
@@ -16,12 +17,15 @@ struct NewItemView: View {
     @Query var shops: [Shop]
     @Query var item_categories: [ItemCategory]
     
+    let logger = Logger(subsystem: "NewItemView", category: "NewItemView")
+    
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
                     Spacer()
                     Button("Save") {
+                        logger.info("New item created")
                         modelContext.insert(item)
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -37,6 +41,9 @@ struct NewItemView: View {
                 ItemDataViewComponent(shops: shops, item_categories: item_categories, item: item)
                 ItemRecurringConfigViewComponent(item: item)
             }
+        }
+        .onAppear() {
+            logger.info("NewItemView active")
         }
     }
 }

@@ -8,9 +8,13 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct ShopsView: View {
     @Environment(\.modelContext) var modelContext
     @Query var shops: [Shop]
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ShopsView")
     
     var body: some View {
         VStack {
@@ -43,6 +47,9 @@ struct ShopsView: View {
                         Divider()
                     }
                 }
+            }
+            .onAppear() {
+                logger.info("ShopsView active")
             }
             Spacer()
         }

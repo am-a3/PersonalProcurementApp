@@ -7,9 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import os
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ContentView")
 
     var body: some View {
         NavigationView {
@@ -52,6 +55,7 @@ struct ContentView: View {
             }
         }
         .onAppear() {
+            logger.info("Checking and reseting recurring items")
             ServiceProvider.shared.getRecurringEventService().resetItems()
         }
     }

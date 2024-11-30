@@ -8,9 +8,13 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct ItemsView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Item.is_procured) var items: [Item]
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemsView")
     
     var body: some View {
         HStack {
@@ -40,6 +44,7 @@ struct ItemsView: View {
                             .padding(.trailing, 10)
                         Button(action: {
                             item.is_procured.toggle()
+                            logger.info("Toggling \(item.name) is_procured to \(item.is_procured.description)")
                             modelContext.insert(item)
                         }, label: {
                             Label("",systemImage: item.is_procured ? "checkmark.square.fill" : "square")
@@ -54,6 +59,9 @@ struct ItemsView: View {
                     Divider()
                 }
             }
+        }
+        .onAppear() {
+            logger.info("ItemsView active")
         }
         Spacer()
     }

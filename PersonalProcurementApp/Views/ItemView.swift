@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import os
 
 struct ItemView: View {
     @Environment(\.modelContext) var modelContext
@@ -16,12 +17,15 @@ struct ItemView: View {
     @Query var shops: [Shop]
     @Query var item_categories: [ItemCategory]
     
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemView")
+    
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
                     Spacer()
                     Button("Delete") {
+                        logger.info("Deleting item \(item.name)")
                         modelContext.delete(item)
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -31,6 +35,7 @@ struct ItemView: View {
                     .padding(.top, 10)
                     .padding(.trailing, 10)
                     Button("Save") {
+                        logger.info("Saving item \(item.name)")
                         modelContext.insert(item)
                     }
                     .buttonStyle(.bordered)
@@ -46,8 +51,12 @@ struct ItemView: View {
                 ItemRecurringConfigViewComponent(item: item)
             }
         }
+        .onAppear() {
+            logger.info("ItemView active")
+        }
     }
 }
+
 
 #Preview {
     ItemView(item: Item(name: "Test1", quantity: 2, details: "Test item"))

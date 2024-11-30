@@ -8,17 +8,22 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct NewShopView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
     @Bindable var shop: Shop = Shop()
     @Query var item_categories: [ItemCategory]
     
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "NewShopView")
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button("Save") {
+                    logger.info("Saving shop \(shop.name)")
                     modelContext.insert(shop)
                     self.presentationMode.wrappedValue.dismiss()
                 }
@@ -62,6 +67,9 @@ struct NewShopView: View {
                     axis: .vertical
                 )
                 Spacer()
+            }
+            .onAppear() {
+                logger.info("NewShopView active")
             }
             .padding(.top, 1)
             //Item category assignment:

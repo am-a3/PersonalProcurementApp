@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+import os
+
 struct ItemCategorySelectViewComponent: View {
     let item_categories: [ItemCategory]
     var item: Item
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemCategorySelectViewComponent")
     
     init (item: Item, item_categories: [ItemCategory]) {
         self.item_categories = item_categories
@@ -31,10 +35,12 @@ struct ItemCategorySelectViewComponent: View {
                         Button(action: {
                             if !item.categories.contains(ic) {
                                 item.categories.append(ic)
+                                logger.info("Item \(item.name) added to categories \(item.categories)")
                             }
                             else {
                                 if let index = item.categories.firstIndex(of: ic) {
                                     item.categories.remove(at: index)
+                                    logger.info("Item \(item.name) removed to categories \(item.categories)")
                                 }
                             }
                         }, label: {

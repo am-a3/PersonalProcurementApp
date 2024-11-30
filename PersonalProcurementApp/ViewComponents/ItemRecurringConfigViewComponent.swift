@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import os
 
 struct ItemRecurringConfigViewComponent: View {
     @State private var item: Item
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemRecurringConfigViewComponent")
     
     init (item: Item) {
         self.item = item
@@ -26,6 +29,7 @@ struct ItemRecurringConfigViewComponent: View {
             Spacer()
             Button(action: {
                 self.item.reccure_config.is_reccuring = !self.item.reccure_config.is_reccuring
+                logger.info("Set item recurring state to \(self.item.reccure_config.is_reccuring)")
             }, label: {
                 Label("",systemImage: self.item.reccure_config.is_reccuring ? "checkmark.square.fill" : "square")
                     .labelStyle(.iconOnly)

@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+import os
+
 struct ItemCategoryView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode
@@ -15,11 +17,14 @@ struct ItemCategoryView: View {
     
     @Query var items: [Item]
     
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemCategoryView")
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button("Delete") {
+                    logger.info("Deleting item category \(item_category.name)")
                     modelContext.delete(item_category)
                     self.presentationMode.wrappedValue.dismiss()
                 }
@@ -29,6 +34,7 @@ struct ItemCategoryView: View {
                 .padding(.top, 10)
                 .padding(.trailing, 10)
                 Button("Save") {
+                    logger.info("Saving item category \(item_category.name)")
                     modelContext.insert(item_category)
                 }
                 .buttonStyle(.bordered)
@@ -75,6 +81,7 @@ struct ItemCategoryView: View {
                                 .padding(.leading, 20)
                             Button(action: {
                                 if !item_category.items.contains(item) {
+                                    logger.info("Adding item \(item.name) to item category \(item_category.name)")
                                     item_category.items.append(item)
                                 }
                             }, label: {
@@ -89,6 +96,9 @@ struct ItemCategoryView: View {
                     }
                     .padding(.top, 1)
                 }
+            }
+            .onAppear() {
+                logger.info("ItemCategoryView active")
             }
             .padding(.top, 1)
             Spacer()

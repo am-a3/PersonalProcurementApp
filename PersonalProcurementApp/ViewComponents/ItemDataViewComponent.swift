@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+import os
+
 struct ItemDataViewComponent: View {
     let shops: [Shop]
     let item_categories: [ItemCategory]
     @Bindable var item: Item
+    
+    let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemDataViewComponent")
     
     var body: some View {
         //Name field:
@@ -43,6 +47,7 @@ struct ItemDataViewComponent: View {
             .padding(.leading, 20)
             Button(item.is_procured ? "Done" : "Pending") {
                 item.is_procured = !item.is_procured
+                logger.info("Item \(item.name) status changed to \(item.is_procured.description)")
             }
             .foregroundColor(item.is_procured ? .green : .red)
             Spacer()
