@@ -20,7 +20,8 @@ struct ItemDataViewComponent: View {
         //Name field:
         HStack {
             Text("Name:")
-            .padding(.leading, 20)
+                .padding(.leading, 20)
+                .bold()
             TextField(
                 item.name,
                 text: $item.name,
@@ -32,7 +33,8 @@ struct ItemDataViewComponent: View {
         //Quantity field:
         HStack {
             Text("Quantity:")
-            .padding(.leading, 20)
+                .padding(.leading, 20)
+                .bold()
             TextField(
                 String(item.quantity),
                 value: $item.quantity,
@@ -44,7 +46,8 @@ struct ItemDataViewComponent: View {
         //Status field:
         HStack {
             Text("Status:")
-            .padding(.leading, 20)
+                .padding(.leading, 20)
+                .bold()
             Button(item.is_procured ? "Done" : "Pending") {
                 item.is_procured = !item.is_procured
                 logger.info("Item \(item.name) status changed to \(item.is_procured.description)")
@@ -56,7 +59,8 @@ struct ItemDataViewComponent: View {
         //Details field:
         HStack {
             Text("Details:")
-            .padding(.leading, 20)
+                .padding(.leading, 20)
+                .bold()
             TextField(
                 item.details,
                 text: $item.details,
@@ -65,8 +69,10 @@ struct ItemDataViewComponent: View {
             Spacer()
         }
         .padding(.top, 1)
+        Divider()
         //Shop field:
         ItemShopSelectViewComponent(shops: shops, item: item)
+        Divider()
         //Categories field:
         ItemCategorySelectViewComponent(item: item, item_categories: item_categories)
         Spacer()

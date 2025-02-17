@@ -19,6 +19,7 @@ struct ItemShopSelectViewComponent: View {
         HStack {
             Text("Shop:")
                 .padding(.leading, 20)
+                .bold()
             Spacer()
         }
         ScrollView() {

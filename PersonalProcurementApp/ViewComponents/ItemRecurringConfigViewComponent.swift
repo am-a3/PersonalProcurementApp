@@ -21,11 +21,13 @@ struct ItemRecurringConfigViewComponent: View {
         HStack {
             Text("Recurring config:")
                 .padding(.leading, 20)
+                .bold()
             Spacer()
         }
         HStack {
             Text("Is recurring:")
                 .padding(.leading, 20)
+                .bold()
             Spacer()
             Button(action: {
                 self.item.reccure_config.is_reccuring = !self.item.reccure_config.is_reccuring
@@ -41,6 +43,7 @@ struct ItemRecurringConfigViewComponent: View {
         HStack {
             Text("Time unit:")
                 .padding(.leading, 20)
+                .bold()
             Spacer()
             Picker("Recurre unit", selection: $item.reccure_config.type) {
                 ForEach(ReccureType.allCases, id: \.self) { unit in
@@ -51,6 +54,7 @@ struct ItemRecurringConfigViewComponent: View {
         HStack {
             Text("Units:")
                 .padding(.leading, 20)
+                .bold()
             TextField(
                 String(item.reccure_config.recurre_unit),
                 value: $item.reccure_config.recurre_unit,

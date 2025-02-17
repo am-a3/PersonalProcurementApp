@@ -24,6 +24,7 @@ struct ItemCategorySelectViewComponent: View {
         HStack {
             Text("Categories:")
                 .padding(.leading, 20)
+                .bold()
             Spacer()
         }
         ScrollView() {
