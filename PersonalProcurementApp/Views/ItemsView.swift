@@ -12,12 +12,24 @@ import os
 
 struct ItemsView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Item.is_procured) var items: [Item]
+    
+    @State private var selectedSortOption: ItemSortOption = .name
+    
+    var sortDescriptor: SortDescriptor<Item> {
+        selectedSortOption.descriptor
+    }
+    
+    @Query var items: [Item]
     
     let logger = Logger(subsystem: "PersonalProcurementApp", category: "ItemsView")
     
     var body: some View {
         HStack {
+            Picker("Sort by", selection: $selectedSortOption) {
+                ForEach(ItemSortOption.allCases, id: \.self) { option in
+                    Text(option.rawValue).tag(option)
+                }
+            }
             Spacer()
             NavigationLink(destination: NewItemView()) {
                 Text("New item")
@@ -33,7 +45,7 @@ struct ItemsView: View {
             .background(Color.blue)
         ScrollView() {
             VStack {
-                ForEach(items) { item in
+                ForEach(items.sorted(using: [SortDescriptor(\Item.is_procured), sortDescriptor]), id: \.self) { item in
                     HStack {
                         NavigationLink(destination: ItemView(item: item)){
                             Text(item.name)
