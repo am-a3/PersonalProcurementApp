@@ -12,13 +12,25 @@ import os
 
 struct ShopsView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var shops: [Shop]
+    
+    @State private var selectedSortOption: ShopSortOption = .name
+    
+    var sortDescriptor: SortDescriptor<Shop> {
+        selectedSortOption.descriptor
+    }
+    
+    @Query(sort: \Shop.name) var shops: [Shop]
     
     let logger = Logger(subsystem: "PersonalProcurementApp", category: "ShopsView")
     
     var body: some View {
         VStack {
             HStack {
+                Picker("Sort by", selection: $selectedSortOption) {
+                    ForEach(ShopSortOption.allCases, id: \.self) { option in
+                        Text(option.rawValue).tag(option)
+                    }
+                }
                 Spacer()
                 NavigationLink(destination: NewShopView()) {
                     Text("New shop")
@@ -34,7 +46,7 @@ struct ShopsView: View {
                 .background(Color.blue)
             ScrollView() {
                 VStack {
-                    ForEach(shops) { shop in
+                    ForEach(shops.sorted(using: [sortDescriptor])) { shop in
                         HStack {
                             NavigationLink(destination: ShopView(shop: shop)){
                                 Text(shop.name)
